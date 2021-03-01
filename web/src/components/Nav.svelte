@@ -2,7 +2,7 @@
     export let segment;
 </script>
 
-<nav class="my-4 bg-white">
+<nav class="my-6 bg-white">
     <ul class="flex justify-center items-center">
         <li>
             <a
@@ -16,7 +16,7 @@
             <a
                 class="{segment === undefined
                     ? 'selected'
-                    : ''} mx-4 font-shippori text-xl"
+                    : ''} mx-4 font-shippori text-2xl"
                 href=".">S / S</a
             >
         </li>
