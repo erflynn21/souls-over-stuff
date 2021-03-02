@@ -1,8 +1,11 @@
 <script context="module">
-    export async function preload({ params }) {
+    import client from '../sanityClient';
+
+    export async function preload() {
         try {
-            const res = await this.fetch('api/blog/all');
-            const { posts } = await res.json();
+            const posts = await client.fetch(
+                '*[_type == "post" && defined(slug.current) && publishedAt < now()] | order(publishedAt desc) | {title, "mainImage": mainImage.asset->url, slug, publishedAt, excerpt }'
+            );
             return { posts };
         } catch (err) {
             this.error(500, err);
@@ -14,7 +17,7 @@
     export let posts;
     import BlockContent from '@movingbrands/svelte-portable-text';
     import serializers from '../components/serializers';
-    console.log(posts);
+    // console.log(posts);
 
     function formatDate(date) {
         return new Date(date).toLocaleDateString('en-US', {
@@ -31,9 +34,9 @@
 
 <ul>
     {#each posts as post}
-        <div class="grid grid-cols-2 my-16 gap-10">
+        <li class="grid grid-cols-2 my-16 gap-10">
             <div class="">
-                <a rel="prefetch" href="blog/{post.slug.current}">
+                <a rel="prefetch" href={post.slug.current}>
                     <h1 class="text-2xl text-center hover:text-gray-500">
                         {post.title}
                     </h1></a
@@ -44,18 +47,11 @@
                 <BlockContent blocks={post.excerpt[0]} {serializers} />
             </div>
             <div>
-                <a href="blog/{post.slug.current}">
+                <a href={post.slug.current}>
                     <img src={post.mainImage} alt="blog post image" />
                 </a>
             </div>
-        </div>
+        </li>
         <hr />
     {/each}
 </ul>
-
-<style>
-    ul {
-        margin: 0 0 1em 0;
-        line-height: 1.5;
-    }
-</style>
