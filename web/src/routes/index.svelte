@@ -17,15 +17,8 @@
     export let posts;
     import BlockContent from '@movingbrands/svelte-portable-text';
     import serializers from '../components/serializers';
+    import { formatDate } from '../js/formatDate';
     // console.log(posts);
-
-    function formatDate(date) {
-        return new Date(date).toLocaleDateString('en-US', {
-            month: 'short',
-            day: 'numeric',
-            year: 'numeric',
-        });
-    }
 </script>
 
 <svelte:head>
