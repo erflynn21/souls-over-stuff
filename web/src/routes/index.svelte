@@ -12,9 +12,16 @@
 
 <script>
     export let posts;
+    import BlockContent from '@movingbrands/svelte-portable-text';
+    import serializers from '../components/serializers';
+    console.log(posts);
 
     function formatDate(date) {
-        return new Date(date).toLocaleDateString();
+        return new Date(date).toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric',
+        });
     }
 </script>
 
@@ -22,14 +29,27 @@
     <title>Blog</title>
 </svelte:head>
 
-<h1>Recent posts</h1>
-
 <ul>
     {#each posts as post}
-        <li>
-            <a rel="prefetch" href="blog/{post.slug.current}">{post.title}</a>
-            ({formatDate(post.publishedAt)})
-        </li>
+        <div class="grid grid-cols-2 my-16 gap-10">
+            <div class="">
+                <a rel="prefetch" href="blog/{post.slug.current}">
+                    <h1 class="text-2xl text-center hover:text-gray-500">
+                        {post.title}
+                    </h1></a
+                >
+                <h2 class="italic text-center font-thin mb-4">
+                    {formatDate(post.publishedAt)}
+                </h2>
+                <BlockContent blocks={post.excerpt[0]} {serializers} />
+            </div>
+            <div>
+                <a href="blog/{post.slug.current}">
+                    <img src={post.mainImage} alt="blog post image" />
+                </a>
+            </div>
+        </div>
+        <hr />
     {/each}
 </ul>
 

@@ -8,7 +8,9 @@
 <Nav {segment} />
 
 <div class="bg-gray-50">
-    <main class="font-light relative my-0 mx-auto box-border p-8 max-w-5xl ">
+    <main
+        class="font-light relative my-0 mx-auto box-border px-16 pt-2 pb-8 max-w-5xl "
+    >
         <slot />
     </main>
 </div>
@@ -18,6 +20,6 @@
 <style>
     main {
         min-height: calc(100vh - 152px);
-        max-height: calc(100vh - 152px);
+        /* max-height: calc(100vh - 152px); */
     }
 </style>

@@ -6,7 +6,7 @@ import client from '../../../sanityClient'
  */
 export async function get (req, res) {
   try {
-    const posts = await client.fetch('*[_type == "post" && defined(slug.current) && publishedAt < now()]|order(publishedAt desc)')
+    const posts = await client.fetch('*[_type == "post" && defined(slug.current) && publishedAt < now()] | order(publishedAt desc) | {title, "mainImage": mainImage.asset->url, slug, publishedAt, excerpt }')
     res.end(JSON.stringify({ posts }));
   } catch (err) {
     res.writeHead(500, {
