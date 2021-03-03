@@ -19,7 +19,6 @@
 
 <style>
     main {
-        min-height: calc(100vh - 152px);
-        /* max-height: calc(100vh - 152px); */
+        min-height: calc(100vh - 268px);
     }
 </style>
