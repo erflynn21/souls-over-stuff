@@ -12,5 +12,5 @@
         about finding joy, contentment, and purpose by living the way that we
         were created to, not the way the world tells us to.
     </p>
-    <p>Welcome to Souls Over Stuff.</p>
+    <p class="mb-10">Welcome to Souls Over Stuff.</p>
 </div>
