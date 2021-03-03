@@ -1,4 +1,5 @@
 <script>
+    import Footer from '../components/Footer.svelte';
     import Nav from '../components/Nav.svelte';
 
     export let segment;
@@ -6,17 +7,18 @@
 
 <Nav {segment} />
 
-<main>
-    <slot />
-</main>
+<div class="bg-gray-50">
+    <main
+        class="font-light relative my-0 mx-auto box-border px-16 pt-2 pb-12 max-w-5xl "
+    >
+        <slot />
+    </main>
+</div>
+
+<Footer />
 
 <style>
     main {
-        position: relative;
-        max-width: 56em;
-        background-color: white;
-        padding: 2em;
-        margin: 0 auto;
-        box-sizing: border-box;
+        min-height: calc(100vh - 300px);
     }
 </style>
