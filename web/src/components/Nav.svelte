@@ -12,7 +12,15 @@
                 href="about">About</a
             >
         </li>
-        <li class="w-8">
+        <li>
+            <a
+                class="{segment === 'archive'
+                    ? 'selected'
+                    : ''} mx-6 font-light text-lg"
+                href="archive">Archive</a
+            >
+        </li>
+        <li class="w-8 mx-6">
             <a
                 class="{segment === undefined ? 'selected' : ''} text-2xl"
                 href="."
@@ -28,6 +36,14 @@
                 </div>
                 <div class="font-shippori text-center">S</div>
             </a>
+        </li>
+        <li>
+            <a
+                class="{segment === 'books'
+                    ? 'selected'
+                    : ''} mx-6 font-light text-lg"
+                href="books">Books</a
+            >
         </li>
         <li>
             <a

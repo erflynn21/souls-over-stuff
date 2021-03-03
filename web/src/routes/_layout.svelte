@@ -19,6 +19,6 @@
 
 <style>
     main {
-        min-height: calc(100vh - 268px);
+        min-height: calc(100vh - 300px);
     }
 </style>
