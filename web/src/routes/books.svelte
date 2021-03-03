@@ -1,3 +1,23 @@
+<script context="module">
+    import client from '../sanityClient';
+
+    export async function preload() {
+        try {
+            const books = await client.fetch(
+                '*[_type == "book"] | {name, "mainImage": mainImage.asset->url, url, summary }'
+            );
+            return { books };
+        } catch (err) {
+            this.error(500, err);
+        }
+    }
+</script>
+
+<script>
+    export let books;
+    console.log(books);
+</script>
+
 <svelte:head>
     <title>Books</title>
 </svelte:head>

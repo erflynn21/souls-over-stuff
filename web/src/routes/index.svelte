@@ -18,7 +18,6 @@
     import BlockContent from '@movingbrands/svelte-portable-text';
     import serializers from '../components/serializers';
     import { formatDate } from '../js/formatDate';
-    // console.log(posts);
 </script>
 
 <svelte:head>
