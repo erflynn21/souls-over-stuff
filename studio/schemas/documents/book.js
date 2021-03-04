@@ -25,8 +25,9 @@ export default {
     },
     {
       name: 'summary',
-      type: 'text',
-      title: 'Summary'
+      type: 'array',
+      title: 'Summary',
+      of: [{type: 'block'}]
     },
     {
 			name: 'url',

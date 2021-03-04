@@ -66,7 +66,7 @@
         margin: 0 0 0.5em 0;
     }
 
-    .content :global(p) {
+    :global(.content p) {
         margin-bottom: 1em;
     }
 </style>
