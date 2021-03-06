@@ -9,7 +9,7 @@
 
 <div class="bg-gray-50">
     <main
-        class="font-light relative my-0 mx-auto box-border px-16 pt-2 pb-12 max-w-5xl "
+        class="font-light relative my-0 mx-auto box-border px-16 pt-2 pb-12 max-w-5xl"
     >
         <slot />
     </main>
